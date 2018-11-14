@@ -18,6 +18,8 @@ from django.urls import include, path
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_jwt.views import obtain_jwt_token 
+from rest_framework_jwt.views import refresh_jwt_token
 
 
 urlpatterns = [
@@ -26,6 +28,10 @@ urlpatterns = [
     path('cliente/', include('cliente.urls')),
     path('despesa/', include('despesa.urls')),
     path('noticia/', include('noticia.urls')),
+    path('usuario/', include('usuario.urls')),
+    path('documento/', include('documento.urls')),
+    url(r'^api-token-auth/', obtain_jwt_token), 
+    url(r'^api-token-refresh/', refresh_jwt_token),
 ]
 if settings.DEBUG: 
   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

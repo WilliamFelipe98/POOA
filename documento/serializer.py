@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from . import models
-class DespesaSerializer(serializers.ModelSerializer):
+
+class DocumentoSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
-        model = models.Despesa
+        model = models.Documento
+
